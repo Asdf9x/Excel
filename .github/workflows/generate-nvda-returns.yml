@@ -16,6 +16,9 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: main
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -36,3 +39,5 @@ jobs:
         with:
           commit_message: 'Generate NVDA_Returns_Analysis.xlsx'
           file_pattern: 'reports/NVDA_Returns_Analysis.xlsx'
+          branch: main
+          push_options: '--force-with-lease'
